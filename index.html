@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Life</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="js/life.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="style/css.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="style/jquery-ui-1.10.3.custom.min.css"/>
+</head>
+<body>
+<p>
+    <label for="height">Высота</label>
+    <input type="text" class="inputText" id="height"/>
+    <label for="width">Ширина</label>
+    <input type="text" class="inputText" id="width"/>
+
+    <input type="button" value="Старт" class="btn red" id="start"/>
+    <input type="button" value="Стоп" class="btn red" id="stop"/>
+</p>
+
+<p>
+    <input type="button" value="Очистить" class="btn red" id="clear"/>
+    <input type="button" value="Создать поле" class="btn red" id="create"/>
+</p>
+<table>
+    <tr>
+        <td class="tdFirst">
+            <div id="slider-vertical" style="height:200px;"></div>
+            <div class="value">
+                <div id="value">1000</div>
+                <div class="valueLegend">мс</div>
+            </div>
+        </td>
+        <td class="tdSecond">
+            <div id="mainTable">
+            </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+<script type="text/javascript">
+    jQuery(function () {
+        var Life = new LIFE();
+        Life.init();
+    })
+
+</script>
+</html>

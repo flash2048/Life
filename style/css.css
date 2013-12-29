@@ -1,0 +1,72 @@
+
+#mainTable td{
+    width: 20px;
+    height: 20px;
+    border-color: #000000;
+    border-style: dotted;
+    border-width: 0.1em;
+    margin: 0;
+    padding: 0;
+}
+#mainTable table {
+    border-collapse:collapse;
+}
+#mainTable tr td:first-child{
+    border-left: none;
+}
+#mainTable tr td:last-child{
+    border-right: none;
+}
+#mainTable table tr:first-child td{
+    border-top: none;
+}
+
+#mainTable table tr:last-child td{
+    border-bottom: none;
+}
+#mainTable{
+    margin-top: 30px;
+}
+
+.btn {
+    border-radius: 2px;
+    box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3) inset;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 3px;
+    cursor: pointer;
+}
+.red {
+    background: linear-gradient(to bottom, #E25B53 0%, #DD2011 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #C42222;
+}
+
+.tdSelect{
+    background: url("bg.png") no-repeat center #dfe1e1;
+}
+
+.tdFree{
+    background: none;
+}
+.inputText{
+    width: 20px;
+}
+.tdFirst{
+    width: 50px;
+}
+.value{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+#value{
+    float: left;
+}
+#slider-vertical{
+    margin: 0 auto;
+    height: 300px!important;
+}
+.valueLegend{
+    float: left;
+}
