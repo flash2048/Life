@@ -3,15 +3,15 @@ function LIFE() {
     this.width = 15;
     this.select = "tdSelect";
     this.noSelect = "tdFree";
-    this.idWidth = "width";
-    this.idHeight = "height";
-    this.idStart = "start";
-    this.idStop = "stop";
-    this.idClear = "clear";
-    this.idCreate = "create";
-    this.idSlider = "slider-vertical";
-    this.idValue = "value";
-    this.idMainTable = "mainTable";
+    this.idWidth = "#width";
+    this.idHeight = "#height";
+    this.idStart = "#start";
+    this.idStop = "#stop";
+    this.idClear = "#clear";
+    this.idCreate = "#create";
+    this.idSlider = "#slider-vertical";
+    this.idValue = "#value";
+    this.idMainTable = "#mainTable";
     this.sliderMin = 0;
     this.sliderMax = 2000;
     this.table = "";
@@ -21,14 +21,14 @@ function LIFE() {
     this.idInterval = null;
 
     this.init = function () {
-        jQuery("#" + this.idWidth).val(this.width);
-        jQuery("#" + this.idHeight).val(this.height);
+        jQuery(this.idWidth).val(this.width);
+        jQuery(this.idHeight).val(this.height);
 
         this.matrix = new Array(this.height);
         for (var i = 0; i < this.height; i++) {
             this.matrix[i] = new Array(this.width);
         }
-        jQuery("#" + this.idValue).text(this.delay);
+        jQuery(this.idValue).text(this.delay);
         this.createTable();
         this.stop();
         this.wait(this);
@@ -45,7 +45,7 @@ function LIFE() {
             this.table += "</tr>";
         }
         this.table += "</table>";
-        jQuery("#" + this.idMainTable).append(jQuery(this.table));
+        jQuery(this.idMainTable).append(jQuery(this.table));
     };
 
     this.calculate = function () {
@@ -73,9 +73,9 @@ function LIFE() {
     };
 
     this.create = function () {
-        this.height = parseInt(jQuery("#" + this.idHeight).val());
-        this.width = parseInt(jQuery("#" + this.idWidth).val());
-        jQuery("#" + this.idMainTable).html("");
+        this.height = parseInt(jQuery(this.idHeight).val());
+        this.width = parseInt(jQuery(this.idWidth).val());
+        jQuery(this.idMainTable).html("");
         delete this.matrix;
         this.init();
     };
@@ -114,7 +114,7 @@ function LIFE() {
 
         for (var i = 0; i < this.height; i++) {
             for (var j = 0; j < this.width; j++) {
-                var tr = jQuery("#" + this.idMainTable + " table tr").eq(i);
+                var tr = jQuery(this.idMainTable + " table tr").eq(i);
                 var td = jQuery("td", tr).eq(j);
                 if (this.matrix[i][j]) {
                     jQuery(td).addClass(this.select);
@@ -130,10 +130,10 @@ function LIFE() {
     this.stop = function () {
         this.start = false;
         clearInterval(this.idInterval);
-        jQuery("#" + this.idStart).prop('disabled', false);
-        jQuery("#" + this.idClear).prop('disabled', false);
-        jQuery("#" + this.idCreate).prop('disabled', false);
-        jQuery("#" + this.idStop).prop('disabled', true);
+        jQuery(this.idStart).prop('disabled', false);
+        jQuery(this.idClear).prop('disabled', false);
+        jQuery(this.idCreate).prop('disabled', false);
+        jQuery(this.idStop).prop('disabled', true);
     };
     this.play = function () {
         if (this.idInterval != null) {
@@ -141,27 +141,27 @@ function LIFE() {
         }
         this.start = true;
         this.idInterval = setInterval(this.run, this.delay);
-        jQuery("#" + this.idStart).prop('disabled', true);
-        jQuery("#" + this.idClear).prop('disabled', true);
-        jQuery("#" + this.idCreate).prop('disabled', true);
-        jQuery("#" + this.idStop).prop('disabled', false);
+        jQuery(this.idStart).prop('disabled', true);
+        jQuery(this.idClear).prop('disabled', true);
+        jQuery(this.idCreate).prop('disabled', true);
+        jQuery(this.idStop).prop('disabled', false);
     };
 
 
     this.wait = function (parent) {
-        jQuery("#" + parent.idStart).click(function () {
+        jQuery(parent.idStart).click(function () {
             parent.play();
         });
 
 
-        jQuery("#" + parent.idStop).click(function () {
+        jQuery(parent.idStop).click(function () {
             parent.stop();
         });
-        jQuery("#" + parent.idClear).click(function () {
+        jQuery(parent.idClear).click(function () {
             parent.clear();
         });
 
-        jQuery("#" + parent.idCreate).click(function () {
+        jQuery(parent.idCreate).click(function () {
             parent.create();
         });
 
@@ -173,13 +173,13 @@ function LIFE() {
             }
         };
 
-        jQuery("#" + parent.idSlider).slider({
+        jQuery(parent.idSlider).slider({
             orientation: "vertical",
             min: parent.sliderMin,
             max: parent.sliderMax,
             value: parent.delay,
             change: function (event, ui) {
-                jQuery("#" + parent.idValue).text(ui.value);
+                jQuery(parent.idValue).text(ui.value);
                 var isStart = false;
                 if (parent.start) {
                     isStart = parent.start;
@@ -194,7 +194,7 @@ function LIFE() {
             }
         });
 
-        jQuery("#" + parent.idMainTable + " td").click(function () {
+        jQuery(parent.idMainTable + " td").click(function () {
             var col = $(this).parent().children().index($(this));
             var row = $(this).parent().parent().children().index($(this).parent());
             if (jQuery(this).hasClass(parent.select)) {
