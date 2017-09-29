@@ -33,4 +33,4 @@ Life.width = 25;
 Life.delay = 500;
 Life.init();
 ```
-Работу можно увидеть здесь: http://flash2048.com/posts/game-life
+Работу можно увидеть здесь: http://flash2048.com/post/game-life
